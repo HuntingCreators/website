@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  {% if user_has_profile %}
+    <h3> </h3>
+    <div class="col-sm-2 border-end">
+      <ul class="list-unstyled">
+        <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Profile</a></li>
+        <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 offset-sm-1">
+      <!-- Display profile information here -->
+      <!-- Modify this part based on your actual profile model and data -->
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="col-12">
+          <label for="inputName" class="form-label">Name</label>
+          <input type="text" class="form-control" id="inputEmail" value="{{ user.profile.name }}">
+        </div>
+        <!-- Add other profile fields here -->
+        <div class="col-12 mt-3">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  {% else %}
+    <h3>No Profile</h3>
+  {% endif %}
+ </div>
+</div>
+{% endblock main-content %}

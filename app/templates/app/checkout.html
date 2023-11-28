@@ -1,0 +1,18 @@
+<!-- app/templates/app/checkout.html -->
+{% extends 'app/base.html' %}
+{% block title %}Order Placed{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            {% if order_placed %}
+                <h1>Order Placed Successfully!</h1>
+                <p>Thank you for shopping with us. Your order has been placed.</p>
+            {% else %}
+                <h1>Error Placing Order</h1>
+                <p>There was an error placing your order. Please try again.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
